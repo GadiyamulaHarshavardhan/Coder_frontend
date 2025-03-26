@@ -2,26 +2,25 @@
 @tailwind components;
 @tailwind utilities;
 
-:root {
-  --background: #ffffff;
-  --foreground: #171717;
-}
-
-@media (prefers-color-scheme: dark) {
+@layer components {
   :root {
-    --background: #0a0a0a;
-    --foreground: #ededed;
+    --color-primary: 77 151 255;
+    --color-secondary: 64 65 79;
+    --color-background: 243 244 246;
+    --color-foreground: 31 41 55;
   }
-}
+  .dark {
+    --color-primary: 59 130 246; /* Keep your blue primary */
+    --color-secondary: 82 82 91;  /* Keep your gray secondary */
+    --color-background: 30 32 36; /* Lighter black (almost dark gray) */
+    --color-foreground: 249 250 251; /* Keep white text */
+    
+    /* Additional contrast colors */
+    --color-border: 55 65 81;     /* Slightly lighter border */
+    --color-accent: 75 85 99;      /* For subtle highlights */
+  }
 
-body {
-  color: var(--foreground);
-  background: var(--background);
-  font-family: Arial, Helvetica, sans-serif;
-}
-
-@layer utilities {
-  .text-balance {
-    text-wrap: balance;
+  body {
+    @apply bg-background text-foreground min-h-screen;
   }
 }
